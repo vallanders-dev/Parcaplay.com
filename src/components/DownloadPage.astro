@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import { type Lang } from '../i18n/index';
+import { pt } from '../i18n/pt';
+import { en } from '../i18n/en';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = (lang === 'pt' ? pt : en).download;
+const INSTALLER_URL =
+  'https://github.com/vallanders-dev/game-companion-client/releases/latest/download/instalar-parca.cmd';
+---
+
+<Base lang={lang} page="download" title={t.title} description={t.description}>
+  <div class="wrap">
+    <section class="block">
+      <h1>{t.h1}</h1>
+      <p class="lead">{t.intro}</p>
+    </section>
+
+    <section class="block" aria-labelledby="req-h">
+      <h2 id="req-h">{t.reqTitle}</h2>
+      <div class="card">
+        <ul style="margin: 0; padding-left: 1.3em; color: var(--text-2);">
+          {t.reqs.map((r) => <li style="margin-bottom: 0.5em;">{r}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="inst-h">
+      <h2 id="inst-h">{t.installerTitle}</h2>
+      <p>{t.installerText}</p>
+      <p>
+        <a class="btn" href={INSTALLER_URL} rel="noopener" download>{t.installerButton}</a>
+      </p>
+      <p style="color: var(--muted); font-size: 0.9rem;">{t.installerNote}</p>
+      <div class="callout callout--warn">
+        <p><strong>{t.smartscreenTitle}</strong> {t.smartscreen}</p>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="tips-h">
+      <h2 id="tips-h">{t.tipsTitle}</h2>
+      <div class="grid grid--3">
+        {t.tips.map((tip) => (
+          <article class="card"><p style="margin: 0;">{tip}</p></article>
+        ))}
+      </div>
+      <hr class="divider" />
+    </section>
+  </div>
+</Base>

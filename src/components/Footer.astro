@@ -1,0 +1,37 @@
+---
+import { pagePath, type Lang } from '../i18n/index';
+import { pt } from '../i18n/pt';
+import { en } from '../i18n/en';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = lang === 'pt' ? pt : en;
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <p style="color: var(--text); font-family: var(--font-head); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.4em;">Parça</p>
+        <p style="margin: 0;">{t.footer.tagline}</p>
+        <p style="margin: 0.6em 0 0;">{t.footer.madeIn}</p>
+      </div>
+      <nav aria-label={t.footer.site}>
+        <p style="color: var(--text); font-weight: 700; margin-bottom: 0.5em;">{t.footer.site}</p>
+        <p style="margin: 0.2em 0;"><a href={pagePath('home', lang)}>{t.nav.home}</a></p>
+        <p style="margin: 0.2em 0;"><a href={pagePath('news', lang)}>{t.nav.news}</a></p>
+        <p style="margin: 0.2em 0;"><a href={pagePath('download', lang)}>{t.nav.download}</a></p>
+        <p style="margin: 0.2em 0;"><a href={pagePath('faq', lang)}>{t.nav.faq}</a></p>
+        <p style="margin: 0.2em 0;"><a href={pagePath('about', lang)}>{t.nav.about}</a></p>
+      </nav>
+      <nav aria-label={t.footer.legal}>
+        <p style="color: var(--text); font-weight: 700; margin-bottom: 0.5em;">{t.footer.legal}</p>
+        <p style="margin: 0.2em 0;"><a href={pagePath('privacy', lang)}>{t.nav.privacy}</a></p>
+      </nav>
+    </div>
+    <p class="fine">{t.footer.fine}</p>
+  </div>
+</footer>

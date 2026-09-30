@@ -1,0 +1,67 @@
+---
+// Base layout: head meta, hreflang, fonts, header/footer, skip link.
+import '../styles/global.css';
+import '@fontsource/chakra-petch/600.css';
+import '@fontsource/noto-sans/400.css';
+import '@fontsource/noto-sans/500.css';
+import '@fontsource/noto-sans/700.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { otherLangPath, type Lang } from '../i18n/index';
+import { pt } from '../i18n/pt';
+import { en } from '../i18n/en';
+
+interface Props {
+  lang: Lang;
+  page: string;
+  title: string;
+  description: string;
+}
+
+const { lang, page, title, description } = Astro.props;
+const t = lang === 'pt' ? pt : en;
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://parcaplay.com';
+const thisPath = Astro.url.pathname;
+const altPath = otherLangPath(page, lang);
+const altLangTag = lang === 'pt' ? 'en' : 'pt-BR';
+const rssPath = lang === 'pt' ? '/novidades/rss.xml' : '/en/news/rss.xml';
+---
+
+<!doctype html>
+<html lang={lang === 'pt' ? 'pt-BR' : 'en'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={`${site}${thisPath}`} />
+    <link rel="alternate" hreflang={lang === 'pt' ? 'pt-BR' : 'en'} href={`${site}${thisPath}`} />
+    <link rel="alternate" hreflang={altLangTag} href={`${site}${altPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${site}/`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Parça" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={`${site}${thisPath}`} />
+    <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : 'en_US'} />
+    {lang === 'pt'
+      ? <meta property="og:locale:alternate" content="en_US" />
+      : <meta property="og:locale:alternate" content="pt_BR" />}
+    <meta name="theme-color" content="#111318" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={lang === 'pt' ? 'Parça — Novidades' : 'Parça — News'}
+      href={rssPath}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t.skip}</a>
+    <Header lang={lang} page={page} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

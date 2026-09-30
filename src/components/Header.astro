@@ -1,0 +1,88 @@
+---
+// Site header: wordmark, nav, mobile toggle, language switch (PT | EN) on every page.
+import { otherLangPath, pagePath, type Lang } from '../i18n/index';
+import { pt } from '../i18n/pt';
+import { en } from '../i18n/en';
+import Orb from './Orb.astro';
+
+interface Props {
+  lang: Lang;
+  page: string; // route key for nav highlight + language-switch target
+}
+
+const { lang, page } = Astro.props;
+const t = lang === 'pt' ? pt : en;
+const other = lang === 'pt' ? 'en' : 'pt';
+
+const links = [
+  { key: 'news', label: t.nav.news },
+  { key: 'download', label: t.nav.download },
+  { key: 'faq', label: t.nav.faq },
+  { key: 'privacy', label: t.nav.privacy },
+  { key: 'about', label: t.nav.about },
+];
+---
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href={pagePath('home', lang)} aria-label="Parça — home">
+      <Orb state="coral" size={28} decorative />
+      Parça
+      <span class="beta-pill">{t.nav.beta}</span>
+    </a>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
+      <span aria-hidden="true">☰</span>
+      <span class="sr-only">{t.nav.menu}</span>
+    </button>
+    <nav class="site-nav" id="site-nav" data-site-nav aria-label={t.nav.home}>
+      <a
+        href={pagePath('home', lang)}
+        aria-current={page === 'home' ? 'page' : undefined}
+      >{t.nav.home}</a>
+      {links.map((l) => (
+        <a
+          href={pagePath(l.key, lang)}
+          aria-current={page === l.key ? 'page' : undefined}
+        >{l.label}</a>
+      ))}
+      <span class="lang-switch" role="group" aria-label={t.nav.langLabel}>
+        <a
+          href={otherLangPath(page, lang)}
+          hreflang={other === 'pt' ? 'pt-BR' : 'en'}
+          aria-label={other === 'pt' ? 'Versão em português' : 'English version'}
+        >{other === 'pt' ? 'PT' : 'EN'}</a>
+        <span aria-current="true">{lang === 'pt' ? 'PT' : 'EN'}</span>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<script>
+  // Mobile nav toggle — the only JavaScript on the whole site.
+  const btn = document.querySelector('[data-nav-toggle]');
+  const nav = document.querySelector('[data-site-nav]');
+  btn?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(!!open));
+  });
+</script>

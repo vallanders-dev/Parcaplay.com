@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import { type Lang } from '../i18n/index';
+import { pt } from '../i18n/pt';
+import { en } from '../i18n/en';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = (lang === 'pt' ? pt : en).about;
+---
+
+<Base lang={lang} page="about" title={t.title} description={t.description}>
+  <div class="wrap">
+    <section class="block">
+      <h1>{t.h1}</h1>
+      <div class="prose">
+        <p class="lead">{t.aboutText}</p>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="form-h">
+      <h2 id="form-h">{t.formTitle}</h2>
+      <div class="callout callout--draft" role="note">
+        <p><strong>{t.formDraftTitle}.</strong> {t.formDraftText}</p>
+      </div>
+      <div class="card form-card">
+        <!-- Placeholder form: disabled until the owner chooses a backend
+             and approves the privacy text. Collects nothing. -->
+        <form action="#" method="post" aria-describedby="form-note">
+          <fieldset disabled>
+            <div class="field">
+              <label for="beta-name">{t.formName}</label>
+              <input id="beta-name" name="name" type="text" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="beta-email">{t.formEmail}</label>
+              <input id="beta-email" name="email" type="email" autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="beta-game">{t.formGame}</label>
+              <input id="beta-game" name="game" type="text" />
+            </div>
+            <div class="field">
+              <label for="beta-why">{t.formWhy}</label>
+              <textarea id="beta-why" name="why"></textarea>
+            </div>
+            <button class="btn" type="submit" disabled>{t.formSubmit}</button>
+          </fieldset>
+        </form>
+        <p id="form-note" style="margin: 1em 0 0; font-size: 0.9rem;">
+          <span class="todo-flag">TODO</span> {t.formTodo}
+        </p>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="contact-h">
+      <h2 id="contact-h">{t.contactTitle}</h2>
+      <p><span class="todo-flag">TODO</span> {t.contactTodo}</p>
+      <hr class="divider" />
+    </section>
+  </div>
+</Base>

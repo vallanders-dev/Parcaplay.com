@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { type Lang } from '../i18n/index';
+import { pt } from '../i18n/pt';
+import { en } from '../i18n/en';
+import { getNews, postPath, formatDate } from '../lib/news';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = (lang === 'pt' ? pt : en).news;
+const posts = await getNews(lang);
+const rssPath = lang === 'pt' ? '/novidades/rss.xml' : '/en/news/rss.xml';
+---
+
+<Base lang={lang} page="news" title={t.title} description={t.description}>
+  <div class="wrap">
+    <section class="block">
+      <h1>{t.h1}</h1>
+      <p class="lead">
+        {t.intro}{' '}
+        <a href={rssPath} type="application/rss+xml">{t.rssLabel}</a>
+      </p>
+      <ul class="news-list">
+        {posts.map((post) => (
+          <li>
+            <a class="news-card" href={postPath(post, lang)}>
+              <div class="news-meta">
+                <time datetime={post.data.date}>{formatDate(post.data.date, lang)}</time>
+                {post.data.version && <span class="version-pill">{post.data.version}</span>}
+              </div>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.summary}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <hr class="divider" />
+    </section>
+  </div>
+</Base>

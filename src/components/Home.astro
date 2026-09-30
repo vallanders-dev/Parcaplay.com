@@ -1,0 +1,192 @@
+---
+// Landing page (both languages via `lang` prop).
+import Base from '../layouts/Base.astro';
+import Orb from '../components/Orb.astro';
+import { pagePath, type Lang } from '../i18n/index';
+import { pt } from '../i18n/pt';
+import { en } from '../i18n/en';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = (lang === 'pt' ? pt : en).home;
+---
+
+<Base lang={lang} page="home" title={t.title} description={t.description}>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1>{t.h1}</h1>
+      <p class="lead">{t.lead}</p>
+      <p>{t.sub}</p>
+      <div class="hero-cta">
+        <a class="btn" href={pagePath('about', lang)}>{t.ctaPrimary}</a>
+        <a class="btn btn--ghost" href="#como-funciona">{t.ctaSecondary}</a>
+      </div>
+      <div class="orb-cycle-stage" role="img" aria-label={t.orbCaption}>
+        <span class="orb orb--cycling"></span>
+        <div class="orb-state-labels" aria-hidden="true">
+          {t.orbStates.map((s) => (
+            <span><strong>{s.name}</strong> — {s.desc}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <!-- HOW IT WORKS -->
+    <section class="block" id="como-funciona" aria-labelledby="how-h">
+      <h2 id="how-h">{t.howTitle}</h2>
+      <ol class="steps">
+        {t.how.map((s) => (
+          <li>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="block" aria-labelledby="feat-h">
+      <h2 id="feat-h">{t.featuresTitle}</h2>
+      <div class="grid grid--2">
+        {t.features.map((f) => (
+          <article class="card">
+            <h3>{f.title}</h3>
+            <p style="margin:0">{f.text}</p>
+          </article>
+        ))}
+      </div>
+
+      <h3 style="margin-top: 2rem;">{t.orbLegendTitle}</h3>
+      <p>{t.orbLegendText}</p>
+      <div class="state-legend">
+        {t.orbStates.map((s) => (
+          <div class="item">
+            <Orb state={s.color as 'grey' | 'green' | 'amber' | 'coral'} size={40} decorative />
+            <div><b>{s.name}</b><small>{s.desc}</small></div>
+          </div>
+        ))}
+      </div>
+
+      <div class="card orb-demo-card">
+        <span class="micro-label">{t.orbDemo.appLabel}</span>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.1rem;">
+          <Orb state="coral" size={44} decorative />
+          <span class="pill-connected"><span class="dot" aria-hidden="true"></span>{t.orbDemo.connected}</span>
+        </div>
+        <span class="micro-label">{t.orbDemo.questionsToday}</span>
+        <p style="margin: 0 0 0.4rem; color: var(--text); font-weight: 700;">{t.orbDemo.questionsLeft}</p>
+        <div class="meter" role="img" aria-label={t.orbDemo.questionsLeft}>
+          <span style="width: 78%;" aria-hidden="true"></span>
+        </div>
+        <p style="margin: 0.8rem 0 0; font-size: 0.82rem; color: var(--muted);">{t.orbDemo.illustrationNote}</p>
+      </div>
+    </section>
+
+    <!-- WHAT IT SEES -->
+    <section class="block" aria-labelledby="sees-h">
+      <h2 id="sees-h">{t.seesTitle}</h2>
+      <div class="sees-grid">
+        <div class="card">
+          <h3>{t.seesYesTitle}</h3>
+          <ul>
+            {t.seesYes.map((x) => <li>{x}</li>)}
+          </ul>
+        </div>
+        <div class="card">
+          <h3>{t.seesNoTitle}</h3>
+          <ul>
+            {t.seesNo.map((x) => <li>{x}</li>)}
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <p><strong>{t.anticheatTitle}</strong> {t.anticheat}</p>
+      </div>
+    </section>
+
+    <!-- GAMES -->
+    <section class="block" aria-labelledby="games-h">
+      <h2 id="games-h">{t.gamesTitle}</h2>
+      <p class="lead">{t.gamesIntro}</p>
+      <h3>{t.curatedTitle}</h3>
+      <div class="grid grid--4">
+        {t.curated.map((g) => (
+          <article class="card">
+            <h3 style="font-size: 1.05rem;">{g.name}</h3>
+            {g.note && <p style="margin:0; font-size: 0.9rem;">{g.note}</p>}
+          </article>
+        ))}
+      </div>
+      <h3 style="margin-top: 1.8rem;">{t.othersTitle}</h3>
+      <p>{t.othersText}</p>
+    </section>
+
+    <!-- STORY-DRIVEN GAMES -->
+    <section class="block" aria-labelledby="story-h">
+      <h2 id="story-h">{t.storyTitle}</h2>
+      <p class="lead">{t.storyIntro}</p>
+      <div class="grid grid--2">
+        <div class="card">
+          <h3>{t.storyCarefulTitle}</h3>
+          <p>{t.storyCareful}</p>
+          <p style="margin:0"><em>{t.storyChecks}</em></p>
+        </div>
+        <div class="card">
+          <h3>{t.storyOverrideTitle}</h3>
+          <p>{t.storyOverride}</p>
+          <p style="margin:0"><em>{t.storyHonest}</em></p>
+        </div>
+      </div>
+      <div class="callout" style="margin-top: 1rem;">
+        <p><strong>{t.storyMinecraftTitle}.</strong> {t.storyMinecraft}</p>
+      </div>
+    </section>
+
+    <!-- VOICES -->
+    <section class="block" aria-labelledby="voices-h">
+      <h2 id="voices-h">{t.voicesTitle}</h2>
+      <p class="lead">{t.voicesIntro}</p>
+      <div class="voice-list">
+        {t.voices.map((v) => (
+          <article class="card">
+            <span class="tag">{v.tag}</span>
+            <h3>{v.name}</h3>
+            <p style="margin:0">{v.desc}</p>
+          </article>
+        ))}
+      </div>
+      <p style="margin-top: 1rem;">
+        <span class="todo-flag">TODO</span> {t.voicesSamplesNote}
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="block" aria-labelledby="cta-h" style="text-align: center;">
+      <h2 id="cta-h">{t.ctaTitle}</h2>
+      <p class="lead" style="max-width: 46ch; margin-left: auto; margin-right: auto;">{t.ctaText}</p>
+      <p>
+        <a class="btn" href={pagePath('about', lang)}>{t.ctaButton}</a>
+      </p>
+      <hr class="divider" />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 1rem;
+  }
+</style>

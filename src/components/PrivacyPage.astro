@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import { type Lang } from '../i18n/index';
+import { pt } from '../i18n/pt';
+import { en } from '../i18n/en';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = (lang === 'pt' ? pt : en).privacy;
+---
+
+<Base lang={lang} page="privacy" title={t.title} description={t.description}>
+  <div class="wrap">
+    <section class="block">
+      <h1>{t.h1}</h1>
+      <div class="callout callout--draft" role="note">
+        <p><strong>{t.draftTitle}.</strong> {t.draftText}</p>
+      </div>
+      <div class="prose">
+        <p class="lead">{t.intro}</p>
+        <ul>
+          {t.points.map((p) => <li>{p}</li>)}
+        </ul>
+        <p><em>{t.outro}</em></p>
+      </div>
+      <hr class="divider" />
+    </section>
+  </div>
+</Base>

@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { type Lang, pagePath } from '../i18n/index';
+import { pt } from '../i18n/pt';
+import { en } from '../i18n/en';
+import { formatDate, type NewsEntry } from '../lib/news';
+
+interface Props {
+  lang: Lang;
+  post: NewsEntry;
+}
+
+const { lang, post } = Astro.props;
+const t = (lang === 'pt' ? pt : en).news;
+const { Content } = await post.render();
+const pageTitle = `${post.data.title} — ${lang === 'pt' ? 'Novidades' : 'News'} · Parça`;
+---
+
+<Base lang={lang} page="news" title={pageTitle} description={post.data.summary}>
+  <div class="wrap">
+    <section class="block">
+      <p><a href={pagePath('news', lang)}>{t.backToNews}</a></p>
+      <div class="news-meta" style="margin-bottom: 0.6rem;">
+        <time datetime={post.data.date}>
+          {t.publishedOn} {formatDate(post.data.date, lang)}
+        </time>
+        {post.data.version && <span class="version-pill">{post.data.version}</span>}
+      </div>
+      <h1 style="margin-top: 0;">{post.data.title}</h1>
+      <p class="lead">{post.data.summary}</p>
+      <div class="prose">
+        <Content />
+      </div>
+      <hr class="divider" />
+    </section>
+  </div>
+</Base>

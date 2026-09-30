@@ -1,0 +1,25 @@
+---
+// Small glossy sphere brand mark. Pure CSS, no images.
+interface Props {
+  state?: 'grey' | 'green' | 'amber' | 'coral';
+  size?: number;
+  label?: string;
+  decorative?: boolean;
+}
+
+const { state = 'coral', size = 64, label, decorative = false } = Astro.props;
+const colors = {
+  grey: '#8a919e',
+  green: '#34d399',
+  amber: '#f5b740',
+  coral: '#ff6b4a',
+} as const;
+---
+
+<span
+  class="orb"
+  style={`--orb-color:${colors[state]};width:${size}px;height:${size}px;`}
+  role={decorative ? undefined : 'img'}
+  aria-hidden={decorative ? 'true' : undefined}
+  aria-label={decorative ? undefined : label}
+/>
