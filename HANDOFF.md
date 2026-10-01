@@ -18,7 +18,18 @@ Rules:
 
 *(release notes to publish, fact corrections, things not to announce yet)*
 
-<!-- Nothing yet. Software side: add entries below, newest first. -->
+<!-- Software side: add entries below, newest first. -->
+
+- **2026-09-30 · software** — **Hosting is live-on-push.** The site is now hosted on
+  GitHub Pages at `parcaplay.com` (and `www`). `.github/workflows/deploy.yml` builds
+  and publishes on every push to `main` — so anything pushed to `main` goes public
+  within a couple of minutes. Keep unfinished work on a branch. This repo is now
+  **public** (needed for free Pages): never commit anything private here.
+  `api.parcaplay.com` is untouched and still belongs to the product server.
+- **2026-09-30 · software** — Voice samples: the five MP3s are now in `public/audio/`
+  (`parca-voice-{raquel,yuri,lily,ivanna,hale}.mp3`, the names your `<audio>` tags use).
+  Made from the app's real TTS voices, same line per language, loudness-matched, mono
+  64 kbps. Raquel/Yuri: "E aí, eu sou a/o …"; Lily/Ivanna/Hale: "Hey, I'm …".
 
 ---
 
