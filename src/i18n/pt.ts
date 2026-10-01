@@ -159,13 +159,13 @@ export const pt = {
     voicesIntro:
       'Escolha quem fala com você. O idioma escolhido é o idioma da conversa inteira: ele entende você e responde naquele idioma.',
     voices: [
-      { name: 'Raquel', tag: 'Português', desc: 'Voz em português brasileiro.' },
-      { name: 'Yuri', tag: 'Português', desc: 'Voz em português brasileiro.' },
-      { name: 'Lily', tag: 'Inglês · britânico', desc: 'Voz em inglês com sotaque britânico.' },
-      { name: 'Ivanna', tag: 'Inglês · americano', desc: 'Voz em inglês com sotaque americano.' },
-      { name: 'Hale', tag: 'Inglês · americano', desc: 'Voz em inglês com sotaque americano.' },
+      { name: 'Raquel', tag: 'Português', desc: 'Voz em português brasileiro.', file: 'raquel' },
+      { name: 'Yuri', tag: 'Português', desc: 'Voz em português brasileiro.', file: 'yuri' },
+      { name: 'Lily', tag: 'Inglês · britânico', desc: 'Voz em inglês com sotaque britânico.', file: 'lily' },
+      { name: 'Ivanna', tag: 'Inglês · americano', desc: 'Voz em inglês com sotaque americano.', file: 'ivanna' },
+      { name: 'Hale', tag: 'Inglês · americano', desc: 'Voz em inglês com sotaque americano.', file: 'hale' },
     ],
-    voicesSamplesNote: 'Amostras de áudio em breve.',
+    sampleLabel: 'Ouvir amostra',
 
     ctaTitle: 'Bora jogar junto?',
     ctaText: 'O Parça está em beta fechada. Peça seu convite e teste com a gente.',

@@ -159,13 +159,13 @@ export const en = {
     voicesIntro:
       'Pick who talks to you. The language you pick is the language of the whole conversation: it understands you and answers in that language.',
     voices: [
-      { name: 'Raquel', tag: 'Portuguese', desc: 'Voice in Brazilian Portuguese.' },
-      { name: 'Yuri', tag: 'Portuguese', desc: 'Voice in Brazilian Portuguese.' },
-      { name: 'Lily', tag: 'English · British', desc: 'English voice with a British accent.' },
-      { name: 'Ivanna', tag: 'English · American', desc: 'English voice with an American accent.' },
-      { name: 'Hale', tag: 'English · American', desc: 'English voice with an American accent.' },
+      { name: 'Raquel', tag: 'Portuguese', desc: 'Voice in Brazilian Portuguese.', file: 'raquel' },
+      { name: 'Yuri', tag: 'Portuguese', desc: 'Voice in Brazilian Portuguese.', file: 'yuri' },
+      { name: 'Lily', tag: 'English · British', desc: 'English voice with a British accent.', file: 'lily' },
+      { name: 'Ivanna', tag: 'English · American', desc: 'English voice with an American accent.', file: 'ivanna' },
+      { name: 'Hale', tag: 'English · American', desc: 'English voice with an American accent.', file: 'hale' },
     ],
-    voicesSamplesNote: 'Audio samples coming soon.',
+    sampleLabel: 'Play sample',
 
     ctaTitle: 'Come play together?',
     ctaText: 'Parça is in closed beta. Request your invite and test it with us.',

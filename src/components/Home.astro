@@ -158,13 +158,16 @@ const t = (lang === 'pt' ? pt : en).home;
           <article class="card">
             <span class="tag">{v.tag}</span>
             <h3>{v.name}</h3>
-            <p style="margin:0">{v.desc}</p>
+            <p style="margin: 0 0 0.8rem;">{v.desc}</p>
+            <audio
+              controls
+              preload="none"
+              src={`/audio/parca-voice-${v.file}.mp3`}
+              aria-label={`${t.sampleLabel}: ${v.name}`}
+            ></audio>
           </article>
         ))}
       </div>
-      <p style="margin-top: 1rem;">
-        <span class="todo-flag">TODO</span> {t.voicesSamplesNote}
-      </p>
     </section>
 
     <!-- CTA -->
