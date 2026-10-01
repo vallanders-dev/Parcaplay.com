@@ -185,16 +185,26 @@ export const en = {
       'Windows 10 or 11',
       'A microphone',
       'An internet connection',
-      'Python 3.12 or newer, installed with “Add python.exe to PATH” ticked (the current installer needs it)',
     ],
     installerTitle: 'Installer',
     installerText:
-      'A single file, straight from the releases page on GitHub. The install takes care of the rest — and updates install themselves.',
+      'A single file, Parca-Setup.exe (about 70 MB), straight from the releases page on GitHub. Installing takes under a minute — and updates install themselves.',
     installerButton: 'Download the installer',
-    installerNote: 'instalar-parca.cmd · Windows',
+    installerNote: 'Parca-Setup.exe · Windows 10/11',
+    stepsTitle: 'How to install',
+    steps: [
+      'Download and open Parca-Setup.exe.',
+      'If Windows shows its protection warning, follow the step below — that’s where most people get stuck.',
+      'Tick the desktop icon checkbox if you want it. No administrator password needed.',
+      'Parça opens and asks for your tester token. Done.',
+    ],
+    oldInstallerNote:
+      'Used the old installer? Just run the new one over it — your token and settings are kept.',
+    uninstallNote:
+      'To uninstall: Windows Settings → Apps → Parça, like any other app.',
     smartscreenTitle: 'Windows showed a warning?',
     smartscreen:
-      'SmartScreen may warn because it’s a new, little-known program. Click “More info” and then “Run anyway”.',
+      'The program isn’t signed yet, so Windows may say “Windows protected your PC”. Click “More info” and then “Run anyway”.',
     tipsTitle: 'Tips for smooth play',
     tips: [
       'Play in borderless (windowed fullscreen) mode: it works best.',

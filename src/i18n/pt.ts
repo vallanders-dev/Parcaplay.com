@@ -185,16 +185,26 @@ export const pt = {
       'Windows 10 ou 11',
       'Um microfone',
       'Conexão com a internet',
-      'Python 3.12 ou mais novo, instalado com a opção “Add python.exe to PATH” marcada (o instalador atual precisa disso)',
     ],
     installerTitle: 'Instalador',
     installerText:
-      'Um arquivo só, direto da página de releases no GitHub. A instalação cuida do resto — e as atualizações se instalam sozinhas.',
+      'Um arquivo só, o Parca-Setup.exe (uns 70 MB), direto da página de releases no GitHub. A instalação leva menos de um minuto — e as atualizações se instalam sozinhas.',
     installerButton: 'Baixar o instalador',
-    installerNote: 'instalar-parca.cmd · Windows',
+    installerNote: 'Parca-Setup.exe · Windows 10/11',
+    stepsTitle: 'Como instalar',
+    steps: [
+      'Baixe e abra o Parca-Setup.exe.',
+      'Se o Windows mostrar o aviso de proteção, siga a etapa abaixo — é nela que muita gente trava.',
+      'Marque a caixa do ícone na área de trabalho, se quiser. Não pede senha de administrador.',
+      'O Parça abre e pede seu token de testador. Pronto.',
+    ],
+    oldInstallerNote:
+      'Usava o instalador antigo? É só rodar o novo por cima — token e configurações são mantidos.',
+    uninstallNote:
+      'Para desinstalar: Configurações do Windows → Aplicativos → Parça, como qualquer programa.',
     smartscreenTitle: 'O Windows mostrou um aviso?',
     smartscreen:
-      'O SmartScreen pode avisar por ser um programa novo e pouco conhecido. Clique em “Mais informações” e depois em “Executar assim mesmo”.',
+      'O programa ainda não é assinado, então o Windows pode dizer “O Windows protegeu o computador”. Clique em “Mais informações” e depois em “Executar assim mesmo”.',
     tipsTitle: 'Dicas pra jogar tranquilo',
     tips: [
       'Jogue em modo borderless (tela cheia em janela): funciona melhor.',

@@ -41,6 +41,7 @@ Rules:
      from Windows Settings like any other app." Existing installs update by themselves.
   Also: parcaplay.com now enforces HTTPS. The uptime workflow has a manual
   `simulate_down` input (software side uses it to test the alert) - leave it.
+- **2026-10-01 · website — DONE:** download page updated (Parca-Setup.exe link, Python requirement removed, install steps, SmartScreen spelled out plainly, uninstall + old-installer notes), news post v0.1.10 published in Novidades/News + RSS (2026-10-01 Brasília). `uptime.yml` and its issues left alone.
 - **2026-10-01 · software** — `.github/workflows/uptime.yml` is the software side's uptime
   check (server + this site, every 10 min; opens an `[uptime]` issue when something is down
   and closes it when it's back). Please leave it and those issues alone.

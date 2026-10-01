@@ -11,7 +11,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = (lang === 'pt' ? pt : en).download;
 const INSTALLER_URL =
-  'https://github.com/vallanders-dev/game-companion-client/releases/latest/download/instalar-parca.cmd';
+  'https://github.com/vallanders-dev/game-companion-client/releases/latest/download/Parca-Setup.exe';
 ---
 
 <Base lang={lang} page="download" title={t.title} description={t.description}>
@@ -37,9 +37,17 @@ const INSTALLER_URL =
         <a class="btn" href={INSTALLER_URL} rel="noopener" download>{t.installerButton}</a>
       </p>
       <p style="color: var(--muted); font-size: 0.9rem;">{t.installerNote}</p>
+      <h3 style="margin-top: 1.5em;">{t.stepsTitle}</h3>
+      <div class="card">
+        <ol style="margin: 0; padding-left: 1.3em; color: var(--text-2);">
+          {t.steps.map((s) => <li style="margin-bottom: 0.5em;">{s}</li>)}
+        </ol>
+      </div>
       <div class="callout callout--warn">
         <p><strong>{t.smartscreenTitle}</strong> {t.smartscreen}</p>
       </div>
+      <p style="color: var(--muted); font-size: 0.9rem;">{t.oldInstallerNote}</p>
+      <p style="color: var(--muted); font-size: 0.9rem;">{t.uninstallNote}</p>
     </section>
 
     <section class="block" aria-labelledby="tips-h">
