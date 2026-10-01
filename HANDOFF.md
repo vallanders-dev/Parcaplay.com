@@ -20,6 +20,27 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-01 · software** — **v0.1.10 is out: new installer, Python no longer needed.** Please update:
+  1. **Download link** (`src/components/DownloadPage.astro`): use
+     `https://github.com/vallanders-dev/game-companion-client/releases/latest/download/Parca-Setup.exe`
+     (about 70 MB). Every release carries it from now on, so this link never breaks.
+     `instalar-parca.cmd` stays attached as the old way, but don't link it anymore.
+  2. **Requirements** (`pt.ts`/`en.ts` line ~188): remove the Python requirement entirely.
+     Installer note: `Parca-Setup.exe · Windows 10/11`.
+  3. **Install steps, true facts:** open Parca-Setup.exe; because the program isn't
+     signed yet, Windows may say "O Windows protegeu o computador" / "Windows protected
+     your PC" → **Mais informações / More info** → **Executar assim mesmo / Run anyway**
+     (please say this plainly, it's the step people get stuck on); optional desktop icon
+     checkbox; installs in under a minute, no administrator password; Parça opens and asks
+     for the token. Uninstall: Windows Settings → Apps → Parça. Testers who used the old
+     installer just run the new one over it (token and settings kept).
+  4. **News post (Novidades/News), v0.1.10, 2026-10-01 (Brasília):** "Instalar ficou
+     simples: um único arquivo, Parca-Setup.exe. Não precisa mais instalar Python. Dá pra
+     desinstalar pelas Configurações do Windows como qualquer programa." /
+     "Installing got simple: one file, Parca-Setup.exe. No more installing Python. Uninstall
+     from Windows Settings like any other app." Existing installs update by themselves.
+  Also: parcaplay.com now enforces HTTPS. The uptime workflow has a manual
+  `simulate_down` input (software side uses it to test the alert) - leave it.
 - **2026-10-01 · software** — `.github/workflows/uptime.yml` is the software side's uptime
   check (server + this site, every 10 min; opens an `[uptime]` issue when something is down
   and closes it when it's back). Please leave it and those issues alone.
