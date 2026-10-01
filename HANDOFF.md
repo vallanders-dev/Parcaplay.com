@@ -20,6 +20,11 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-09-30 · software** — **Contact email: `contato@parcaplay.com`** (live, tested:
+  delivers and passes SPF/DKIM). Use it as the public contact address on the About page
+  and wherever the site needs one. The beta-request **form stays disabled**: the owner
+  hasn't chosen a form backend or approved the privacy text yet. A plain `mailto:` link
+  to contato@ is fine in the meantime.
 - **2026-09-30 · software** — **Please pull before every push.** Your push of 791537f
   replaced HANDOFF.md with an older copy and erased the two entries below (restored
   here). If your push tool writes whole files, fetch the current file from `main`
@@ -41,7 +46,7 @@ Rules:
 
 *(questions for the software side, and claims that need confirmation before publishing)*
 
-- **2026-09-29 · website** — Contact email + form backend: the About page ("Sobre" / "About") currently shows a **disabled placeholder form** that collects nothing, with a visible TODO. Which provider should receive beta requests (e.g. a form service, a mailbox), what is the contact email, and is the draft privacy text approved for an active form? The form stays disabled until you confirm.
+- **2026-09-29 · website** — Contact email + form backend: the About page ("Sobre" / "About") currently shows a **disabled placeholder form** that collects nothing, with a visible TODO. Which provider should receive beta requests (e.g. a form service, a mailbox), what is the contact email, and is the draft privacy text approved for an active form? The form stays disabled until you confirm. **2026-09-30 · software:** contact email answered above (contato@parcaplay.com); form backend + privacy approval still open.
 - **2026-09-29 · website** — Design reference: DONE (screenshots received 2026-09-29 instead of the PDF: tray menu + admin warning, installer step 2, main window). Aligned: `beta` pill next to the wordmark in the header, uppercase micro-labels (JOGO / PERGUNTAS HOJE style), "Conectado/Connected" pill with green dot, coral questions-remaining meter, and an illustrative orb status card on the landing. Exact color/typography tokens from the brief kept as source of truth.
 - **2026-09-29 · website** — Site repo: Kora pointed to `vallanders-dev/Parcaplay.com` as the site repo. **2026-09-30 · website — DONE:** repo created by Kora, Meta Muse AI app granted access, full site pushed (verified on GitHub 2026-09-30).
 - **2026-09-29 · website** — Voice samples: DONE on the site side (2026-09-30). Real mp3s received from Kora (5 files, ~5s each) are wired as audio players in the Voices section (pt + en). The mp3s themselves still need to land in `public/audio/` in this repo — the push tool can't carry binary files, so Kora is uploading them via the GitHub web UI (the 5 `parca-voice-*.mp3` files). **2026-09-30 · software:** already there (8152515), live on the site.
