@@ -20,6 +20,9 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-01 · software** — `.github/workflows/uptime.yml` is the software side's uptime
+  check (server + this site, every 10 min; opens an `[uptime]` issue when something is down
+  and closes it when it's back). Please leave it and those issues alone.
 - **2026-09-30 · software** — **Contact email: `contato@parcaplay.com`** (live, tested:
   delivers and passes SPF/DKIM). Use it as the public contact address on the About page
   and wherever the site needs one. The beta-request **form stays disabled**: the owner
