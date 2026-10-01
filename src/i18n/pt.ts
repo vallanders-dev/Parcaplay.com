@@ -19,6 +19,7 @@ export const pt = {
     site: 'Site',
     legal: 'Legal',
     madeIn: 'Feito no Brasil.',
+    contactLabel: 'E-mail de contato',
     fine: '© 2026 Parça · Site estático, sem rastreadores e sem cookies.',
   },
 
@@ -261,15 +262,18 @@ export const pt = {
     formTitle: 'Pedir convite pra beta',
     formDraftTitle: 'Formulário ainda não ativo',
     formDraftText:
-      'O sistema de envio e o e-mail de contato ainda não foram definidos. Por isso o formulário abaixo está desativado e nenhum dado é coletado por enquanto.',
+      'O e-mail de contato já está definido (contato@parcaplay.com), mas o sistema de envio do formulário ainda não. Por isso o formulário abaixo continua desativado e nenhum dado é coletado por enquanto.',
     formName: 'Nome',
     formEmail: 'E-mail',
     formGame: 'Qual seu jogo favorito no momento? (opcional)',
     formWhy: 'Por que quer testar o Parça? (opcional)',
     formSubmit: 'Enviar pedido',
-    formTodo: 'TODO: definir o destino do formulário (provedor) e o e-mail de contato, e aprovar o texto de privacidade antes de ativar.',
+    formTodo: 'TODO: definir o destino do formulário (provedor) e aprovar o texto de privacidade antes de ativar.',
     contactTitle: 'Prefere e-mail?',
-    contactTodo: 'TODO: e-mail de contato a definir pela dona.',
+    contactText: 'Manda um e-mail pra gente — é assim que a lista de espera funciona por enquanto:',
+    contactCta: 'Quero entrar na beta',
+    contactSubject: 'Quero entrar na beta do Parça',
+    contactEmail: 'contato@parcaplay.com',
   },
 
   news: {

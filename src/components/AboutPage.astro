@@ -58,7 +58,11 @@ const t = (lang === 'pt' ? pt : en).about;
 
     <section class="block" aria-labelledby="contact-h">
       <h2 id="contact-h">{t.contactTitle}</h2>
-      <p><span class="todo-flag">TODO</span> {t.contactTodo}</p>
+      <p>{t.contactText}</p>
+      <p>
+        <a class="btn" href={`mailto:${t.contactEmail}?subject=${encodeURIComponent(t.contactSubject)}`}>{t.contactCta}</a>
+      </p>
+      <p style="font-size: 0.9rem; color: var(--muted);">{t.contactEmail}</p>
       <hr class="divider" />
     </section>
   </div>

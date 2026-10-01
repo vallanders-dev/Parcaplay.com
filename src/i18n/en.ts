@@ -19,6 +19,7 @@ export const en = {
     site: 'Site',
     legal: 'Legal',
     madeIn: 'Made in Brazil.',
+    contactLabel: 'Contact email',
     fine: '© 2026 Parça · Static site, no trackers and no cookies.',
   },
 
@@ -261,15 +262,18 @@ export const en = {
     formTitle: 'Request a beta invite',
     formDraftTitle: 'Form not active yet',
     formDraftText:
-      'The submission backend and contact email haven’t been decided yet. So the form below is disabled and no data is collected for now.',
+      'The contact email is set (contato@parcaplay.com), but the form submission backend isn’t. So the form below stays disabled and no data is collected for now.',
     formName: 'Name',
     formEmail: 'Email',
     formGame: 'Your favorite game right now? (optional)',
     formWhy: 'Why do you want to test Parça? (optional)',
     formSubmit: 'Send request',
-    formTodo: 'TODO: decide the form destination (provider) and contact email, and approve the privacy text before enabling.',
+    formTodo: 'TODO: decide the form destination (provider) and approve the privacy text before enabling.',
     contactTitle: 'Prefer email?',
-    contactTodo: 'TODO: contact email to be defined by the owner.',
+    contactText: 'Email us — that’s how the waitlist works for now:',
+    contactCta: 'I want beta access',
+    contactSubject: 'I want Parça beta access',
+    contactEmail: 'contato@parcaplay.com',
   },
 
   news: {
