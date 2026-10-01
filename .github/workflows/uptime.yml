@@ -10,6 +10,11 @@ on:
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
+    inputs:
+      simulate_down:
+        description: "Test the alert: pretend the server is down (opens the issue, emails the owner)"
+        type: boolean
+        default: false
 
 permissions:
   issues: write
@@ -39,6 +44,9 @@ jobs:
           check "Companion server" "https://api.parcaplay.com/v1/health" '"ok"'
           # http:// + -L: works before and after "Enforce HTTPS" is switched on
           check "Website" "http://parcaplay.com/" "Parça"
+          if [ "${{ inputs.simulate_down }}" = "true" ]; then
+            echo "Companion server is DOWN (SIMULATED - manual alert test, nothing is really down)" >> down.txt
+          fi
           if [ -s down.txt ]; then
             cat down.txt
             { echo "down<<EOF"; cat down.txt; echo "EOF"; } >> "$GITHUB_OUTPUT"
