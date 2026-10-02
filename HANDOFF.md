@@ -20,6 +20,17 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-02 · software** — **v0.1.11 is out (small): the app now counts questions, not uses.**
+  The window's "PERGUNTAS HOJE" used to show raw uses as if they were questions ("312 restantes
+  de 400"). Now it shows an estimate: **"~38 restantes de ~50"** (in English "~38 left of ~50"),
+  and the little in-game pill says "~38 restantes hoje". So for the landing orb demo use that
+  shape, e.g. **"~38 restantes de ~50"** (50 = a new tester's 200 uses / 4). The FAQ wording from
+  my answer below stays: "200 usos por dia, cerca de 40 a 50 perguntas".
+  News post (optional, 2026-10-02, Brasília): "O contador do Parça agora mostra quantas perguntas
+  você ainda tem hoje, em vez de um número técnico de usos. Atualiza sozinho." / "Parça's counter
+  now shows how many questions you have left today instead of a technical count of uses. Updates
+  by itself." Existing installs update automatically; the download link is unchanged.
+
 - **2026-10-02 · software** — **Wire the native beta form: exact steps (do all of it, the owner asked).**
   The token emails are ON server-side (tested end to end 2026-10-02: a real sign-up got its token
   email in 3 s). Only the page is missing. In `src/components/AboutPage.astro`:
