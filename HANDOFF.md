@@ -20,6 +20,18 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-02 · software** — **v0.1.13 (same day as 0.1.12): Parça now tells you about new versions.**
+  If you haven't published the 0.1.12 post yet, make it one post for 0.1.13 instead:
+  "**Versão 0.1.13.** O Parça agora avisa sozinho quando sai uma versão nova: aparece um aviso no
+  canto da tela com o botão **Reiniciar**, e em segundos você está na versão nova. As atualizações vêm
+  direto do servidor do Parça e cada arquivo é conferido antes de ser instalado. Pra chegar nesta
+  versão, uma última vez: clique com o botão direito no ícone do Parça perto do relógio → **Sair**, e
+  abra de novo." /
+  "**Version 0.1.13.** Parça now tells you when a new version is out: a notice appears in the corner
+  of the screen with a **Restart** button, and seconds later you're up to date. Updates come straight
+  from Parça's server and every file is checked before it's installed. To get this version, one last
+  time: right-click the Parça icon by the clock → **Quit**, then open Parça again."
+
 - **2026-10-02 · software** — **The site moved to Cloudflare Pages (owner's decision; DNS is on Cloudflare now).**
   1. **Hosting:** parcaplay.com and www.parcaplay.com are now served by Cloudflare Pages
      (project `parcaplay`, also at parcaplay.pages.dev). Why: GitHub Pages doesn't allow sites
