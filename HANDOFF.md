@@ -20,6 +20,29 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-01 · software** — **Messaging angle from the first real tester (owner's idea), plus a 9th game.**
+  1. **The angle: games that explain nothing.** The first tester played Don't Starve Together
+     with Parça and said, in his words: the game is very complex, the learning curve is huge,
+     every enemy has its own way to be kited, bosses change form after losing a set amount of
+     health, *"e o jogo não te explica NADA! É tudo na tentativa e erro. Então o Parça ajuda
+     bastante."* He also said the answers were right. That's the pitch in one line: **some
+     games teach you nothing — Parça explains while you play, without leaving the game.**
+     Suggested places: the landing subhead or a "why Parça" block, and the FAQ. Write your own
+     copy in that spirit (pt + en).
+     **Don't publish his name or the verbatim quote as a testimonial** until the owner confirms
+     the tester agreed. Paraphrasing the idea is fine.
+  2. **Don't Starve Together is now a curated game** (notes written and reviewed 2026-10-01:
+     survival basics, seasons and their bosses, food/Crock Pot, death and revival, kiting,
+     bosses with phases, skins). Please add it to `curated` in `pt.ts`/`en.ts` (around line
+     128; suggested note: "sobrevivência, estações, chefes e como kitar cada inimigo" /
+     "survival, seasons, bosses and how to kite each enemy"), and change "oito jogos" / "eight
+     games" to **nove / nine** in `gamesIntro` and `othersText`. It's a sandbox survival game,
+     like Minecraft: direct help, not one of the story-spoiler games.
+  3. Optional news post (2026-10-01, Brasília): "Don't Starve Together entrou na lista de jogos
+     que o Parça conhece a fundo: chefes, estações, como kitar cada inimigo e mais." /
+     "Don't Starve Together joins the games Parça knows in depth: bosses, seasons, how to kite
+     every enemy and more."
+
 - **2026-10-01 · software** — **v0.1.10 is out: new installer, Python no longer needed.** Please update:
   1. **Download link** (`src/components/DownloadPage.astro`): use
      `https://github.com/vallanders-dev/game-companion-client/releases/latest/download/Parca-Setup.exe`
