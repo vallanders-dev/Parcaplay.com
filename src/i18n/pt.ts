@@ -269,6 +269,9 @@ export const pt = {
       'Registros de uso contam perguntas por testador por dia e registram sobre qual jogo foi a pergunta. Não guardam o texto da pergunta.',
       'Sem anúncios — e o programa não vende dados.',
     ],
+    inviteTitle: 'Formulário de convite',
+    inviteText:
+      'Quando você pede um convite pelo formulário, guardamos nome, e-mail, onde você joga, o que você faz, seus jogos favoritos e como conheceu o Parça, no servidor do Parça em São Paulo. Usamos isso para enviar seu token de acesso, falar com você sobre a beta e decidir quais jogos o Parça vai aprender. Só mandamos novidades se você marcar essa opção. O e-mail sai da nossa caixa contato@parcaplay.com (GoDaddy). Não vendemos nem compartilhamos esses dados. Para ver, corrigir ou apagar seus dados, escreva para contato@parcaplay.com.',
     outro:
       'Este site não usa rastreadores, analytics nem cookies.',
   },
@@ -276,22 +279,58 @@ export const pt = {
   about: {
     title: 'Sobre o Parça — peça seu convite pra beta',
     description:
-      'O que é o Parça e como pedir um convite para a beta fechada. Formulário em breve — nenhum dado é coletado por enquanto.',
+      'O que é o Parça e como pedir um convite para a beta fechada.',
     h1: 'Sobre o Parça',
     aboutText:
       'O Parça é um companheiro gamer por voz para PC com Windows, feito no Brasil. “Parça” é gíria para parceiro, colega — e é exatamente esse o espírito: um parça do seu lado enquanto você joga, que responde sem você precisar largar o controle.',
     formTitle: 'Pedir convite pra beta',
-    formDraftTitle: 'Formulário ainda não ativo',
-    formDraftText:
-      'O e-mail de contato já está definido (contato@parcaplay.com), mas o sistema de envio do formulário ainda não. Por isso o formulário abaixo continua desativado e nenhum dado é coletado por enquanto.',
     formName: 'Nome',
     formEmail: 'E-mail',
-    formGame: 'Qual seu jogo favorito no momento? (opcional)',
-    formWhy: 'Por que quer testar o Parça? (opcional)',
+    formPlatform: 'Onde você joga?',
+    formPlatformPlaceholder: 'Selecione…',
+    formPlatformOptions: [
+      { value: 'pc', label: 'PC com Windows' },
+      { value: 'both', label: 'PC e console' },
+      { value: 'console', label: 'Só console' },
+      { value: 'other', label: 'Outro' },
+    ],
+    formOccupation: 'O que você faz?',
+    formSelectPlaceholder: 'Selecione…',
+    formOccupationOptions: [
+      'Jogo por diversão',
+      'Faço live ou vídeos',
+      'Estudo',
+      'Trabalho com games',
+      'Outro',
+    ],
+    formGames: 'Quais jogos você mais joga?',
+    formReferral: 'Como conheceu o Parça?',
+    formReferralOptions: ['Amigo', 'Twitch', 'YouTube', 'TikTok', 'Instagram', 'Discord', 'Google', 'Outro'],
+    formUpdates: 'Quero receber novidades do Parça por e-mail',
+    formPrivacy: 'Li e aceito a',
+    formPrivacyLink: 'política de privacidade',
     formSubmit: 'Enviar pedido',
-    formTodo: 'TODO: definir o destino do formulário (provedor) e aprovar o texto de privacidade antes de ativar.',
+    formMsg: {
+      issued:
+        'Pronto! Mandamos seu token para {email}. Confira a caixa de entrada (e o spam).',
+      queued:
+        'Você está na lista! Os convites saem por ordem de chegada, e o seu chega por e-mail em breve.',
+      waitlist:
+        'Valeu! Por enquanto o Parça é só para PC com Windows. Guardamos seu contato e avisamos quando chegar na sua plataforma.',
+      exists:
+        'Esse e-mail já está cadastrado. Não achou o token? Escreva pra contato@parcaplay.com.',
+      rate: 'Muitas tentativas. Tente de novo daqui a pouco.',
+      network:
+        'Não conseguimos enviar agora. Tente de novo, ou escreva pra contato@parcaplay.com.',
+      error:
+        'Algo deu errado. Tente de novo, ou escreva pra contato@parcaplay.com.',
+      field_name: 'Confira o nome digitado.',
+      field_email: 'Confira o e-mail digitado.',
+      field_privacy: 'Você precisa aceitar a política de privacidade.',
+      field_platform: 'Escolha onde você joga.',
+    },
     contactTitle: 'Prefere e-mail?',
-    contactText: 'Manda um e-mail pra gente — é assim que a lista de espera funciona por enquanto:',
+    contactText: 'Se preferir, manda um e-mail pra gente:',
     contactCta: 'Quero entrar na beta',
     contactSubject: 'Quero entrar na beta do Parça',
     contactEmail: 'contato@parcaplay.com',

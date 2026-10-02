@@ -269,6 +269,9 @@ export const en = {
       'Usage records count questions per tester per day and record which game was asked about. They do not store the question text.',
       'There are no ads, and the software does not sell data.',
     ],
+    inviteTitle: 'Invite form',
+    inviteText:
+      "When you request an invite through the form, we store your name, email, where you play, what you do, your favorite games and how you found Parça, on Parça's server in São Paulo, Brazil. We use it to send your access token, talk to you about the beta and decide which games Parça learns next. We only send news if you tick that box. Emails come from our contato@parcaplay.com mailbox (GoDaddy). We don't sell or share this data. To see, correct or delete your data, write to contato@parcaplay.com.",
     outro:
       'This site uses no trackers, no analytics and no cookies.',
   },
@@ -276,22 +279,58 @@ export const en = {
   about: {
     title: 'About Parça — request your beta invite',
     description:
-      'What Parça is and how to request an invite to the closed beta. Form coming soon — no data is collected for now.',
+      'What Parça is and how to request an invite to the closed beta.',
     h1: 'About Parça',
     aboutText:
       'Parça is a voice-driven gaming companion for Windows PC, made in Brazil. “Parça” is Brazilian slang for buddy or pal — and that’s exactly the spirit: a buddy next to you while you play, answering without you ever leaving the controller.',
     formTitle: 'Request a beta invite',
-    formDraftTitle: 'Form not active yet',
-    formDraftText:
-      'The contact email is set (contato@parcaplay.com), but the form submission backend isn’t. So the form below stays disabled and no data is collected for now.',
     formName: 'Name',
     formEmail: 'Email',
-    formGame: 'Your favorite game right now? (optional)',
-    formWhy: 'Why do you want to test Parça? (optional)',
+    formPlatform: 'Where do you play?',
+    formPlatformPlaceholder: 'Choose…',
+    formPlatformOptions: [
+      { value: 'pc', label: 'Windows PC' },
+      { value: 'both', label: 'PC and console' },
+      { value: 'console', label: 'Console only' },
+      { value: 'other', label: 'Other' },
+    ],
+    formOccupation: 'What do you do?',
+    formSelectPlaceholder: 'Choose…',
+    formOccupationOptions: [
+      'I play for fun',
+      'I stream or make videos',
+      'I study',
+      'I work in games',
+      'Other',
+    ],
+    formGames: 'Which games do you play most?',
+    formReferral: 'How did you hear about Parça?',
+    formReferralOptions: ['Friend', 'Twitch', 'YouTube', 'TikTok', 'Instagram', 'Discord', 'Google', 'Other'],
+    formUpdates: 'Send me Parça news by email',
+    formPrivacy: "I've read and accept the",
+    formPrivacyLink: 'privacy policy',
     formSubmit: 'Send request',
-    formTodo: 'TODO: decide the form destination (provider) and approve the privacy text before enabling.',
+    formMsg: {
+      issued:
+        'Done! Your token is on its way to {email}. Check your inbox (and spam).',
+      queued:
+        "You're on the list! Invites go out in order, yours will arrive by email soon.",
+      waitlist:
+        "Thanks! For now Parça is Windows PC only. We'll let you know when it reaches your platform.",
+      exists:
+        "This email is already signed up. Can't find your token? Write to contato@parcaplay.com.",
+      rate: 'Too many tries. Please try again in a bit.',
+      network:
+        "We couldn't send that right now. Try again, or write to contato@parcaplay.com.",
+      error:
+        'Something went wrong. Try again, or write to contato@parcaplay.com.',
+      field_name: 'Check the name you typed.',
+      field_email: 'Check the email you typed.',
+      field_privacy: 'You need to accept the privacy policy.',
+      field_platform: 'Choose where you play.',
+    },
     contactTitle: 'Prefer email?',
-    contactText: 'Email us — that’s how the waitlist works for now:',
+    contactText: 'Prefer email? Write to us:',
     contactCta: 'I want beta access',
     contactSubject: 'I want Parça beta access',
     contactEmail: 'contato@parcaplay.com',

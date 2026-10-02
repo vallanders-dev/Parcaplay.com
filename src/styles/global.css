@@ -488,6 +488,10 @@ kbd, .kbd {
 .prose li::marker { color: var(--coral); }
 
 .form-card { max-width: 640px; }
+.field--check label { display: flex; gap: 0.5rem; align-items: flex-start; font-weight: 400; }
+.field--check input[type="checkbox"] { margin-top: 0.25rem; }
+.honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+#beta-status { margin: 1rem 0 0; font-weight: 700; }
 .field { margin-bottom: 1.1rem; }
 .field label { display: block; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
 .field input, .field textarea, .field select {
