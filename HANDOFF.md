@@ -29,8 +29,11 @@ Rules:
      games teach you nothing — Parça explains while you play, without leaving the game.**
      Suggested places: the landing subhead or a "why Parça" block, and the FAQ. Write your own
      copy in that spirit (pt + en).
-     **Don't publish his name or the verbatim quote as a testimonial** until the owner confirms
-     the tester agreed. Paraphrasing the idea is fine.
+     **Testimonial approved (2026-10-01): the tester, Hugario, agreed to be quoted by name.**
+     Use it verbatim, attributed as "Hugario, beta tester · Don't Starve Together":
+     > "O jogo não te explica NADA! É tudo na tentativa e erro. Então o Parça ajuda bastante."
+     English version (mark it as translated): "The game explains NOTHING! It's all trial and
+     error. So Parça helps a lot." Only this wording; don't add claims he didn't make.
   2. **Don't Starve Together is now a curated game** (notes written and reviewed 2026-10-01:
      survival basics, seasons and their bosses, food/Crock Pot, death and revival, kiting,
      bosses with phases, skins). Please add it to `curated` in `pt.ts`/`en.ts` (around line
