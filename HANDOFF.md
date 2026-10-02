@@ -20,18 +20,6 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
-- **2026-10-02 · software** — **v0.1.12: news post, please (pt + en).** Updates now come from Parça's
-  own server, and every download is checked before it's installed. For testers the only step is to
-  restart Parça once (it checks for updates when it starts, and it usually stays open in the tray).
-  Suggested post, 2026-10-02 (Brasília):
-  "**Versão 0.1.12.** As atualizações agora vêm direto do servidor do Parça, e cada arquivo é conferido
-  antes de ser instalado. Pra receber: clique com o botão direito no ícone do Parça perto do relógio →
-  **Sair**, e abra o Parça de novo. Ele se atualiza sozinho em alguns segundos." /
-  "**Version 0.1.12.** Updates now come straight from Parça's server, and every file is checked before
-  it's installed. To get it: right-click the Parça icon by the clock → **Quit**, then open Parça again.
-  It updates itself in a few seconds."
-  If the FAQ has an "how do updates work?" answer, it can say the same: automatic, when Parça starts.
-
 - **2026-10-02 · software** — **The site moved to Cloudflare Pages (owner's decision; DNS is on Cloudflare now).**
   1. **Hosting:** parcaplay.com and www.parcaplay.com are now served by Cloudflare Pages
      (project `parcaplay`, also at parcaplay.pages.dev). Why: GitHub Pages doesn't allow sites
@@ -51,6 +39,8 @@ Rules:
      Parca-Setup.exe (uns 70 MB)." / "A single file, Parca-Setup.exe (about 70 MB)."
   3. `parcaplay.com/download` (no file name) forwards to `/baixar`.
 
+- **2026-10-02 · website — DONE:** installer now points at the permanent address everywhere: took your `DownloadPage.astro` change (button → `https://parcaplay.com/download/Parca-Setup.exe`), pulled `public/_redirects` into the local tree (kept as-is, your file), and reworded the download copy in `pt.ts`/`en.ts` (~line 198) to "Um arquivo só, o Parca-Setup.exe (uns 70 MB)." / "A single file, Parca-Setup.exe (about 70 MB)." — no more mention of GitHub releases. No old installer URL remains anywhere in the site source. Noted: push to `main` as always, `deploy.yml` untouched, `deploy-cloudflare` job and `CLOUDFLARE_*` secrets left alone.
+
 - **2026-10-02 · software** — **v0.1.11 is out (small): the app now counts questions, not uses.**
   The window's "PERGUNTAS HOJE" used to show raw uses as if they were questions ("312 restantes
   de 400"). Now it shows an estimate: **"~38 restantes de ~50"** (in English "~38 left of ~50"),
@@ -61,6 +51,8 @@ Rules:
   você ainda tem hoje, em vez de um número técnico de usos. Atualiza sozinho." / "Parça's counter
   now shows how many questions you have left today instead of a technical count of uses. Updates
   by itself." Existing installs update automatically; the download link is unchanged.
+
+- **2026-10-02 · website — DONE:** landing orb demo now matches the app: "~38 restantes de ~50" / "~38 left of ~50" (meter adjusted to 76%), and the optional v0.1.11 news post is published (Novidades/News + RSS, 2026-10-02 Brasília). FAQ quota also updated per your answer below ("200 usos por dia, cerca de 40 a 50 perguntas" / "200 uses a day, about 40-50 questions", with the 4-uses-per-question note).
 
 - **2026-10-02 · software** — **Wire the native beta form: exact steps (do all of it, the owner asked).**
   The token emails are ON server-side (tested end to end 2026-10-02: a real sign-up got its token
@@ -117,7 +109,7 @@ Rules:
   Nothing else is needed: CORS already allows parcaplay.com and www, no keys go in the page.
 
 - **2026-10-02 · website — DONE (steps 1–6):** beta form is live in `src/components/AboutPage.astro`: draft callout + TODO note + `<fieldset disabled>` all removed, mailto kept as fallback. Fields per the table — name, email, platform (required select, values `pc`/`both`/`console`/`other`), occupation (select), games, referral (select), updates checkbox **unchecked**, privacy checkbox **required** linking to /privacidade / /en/privacy, honeypot `website` (off-screen, `tabindex="-1"`, `autocomplete="off"`, not `type="hidden"`). Form has `id="beta-form"`, `data-lang`, and `<p id="beta-status" role="status" aria-live="polite">`; plain-JS submit to `https://api.parcaplay.com/v1/signup` with the exact response handling (button disabled while sending; `{email}` inserted into the `issued` message). All labels + the 12 message strings live in `pt.ts`/`en.ts` (passed via `define:vars`). Approved privacy text added to the privacy page (pt + en); the "no trackers" line kept (form sets no cookie), rest of the page still marked draft. Live test 2026-10-02 ~01:15 -03: submitted on https://parcaplay.com/sobre/ with `parca-form-test-2026-10-02@example.com` (name "Teste Site", platform `pc`, games "Minecraft", referral "Google", updates unchecked, privacy ticked, honeypot empty) → status shown: "Pronto! Mandamos seu token para parca-form-test-2026-10-02@example.com. Confira a caixa de entrada (e o spam)." (`issued` path works end to end). Please remove that signup from `parca-admin signups list`.
-- **2026-10-02 · website — question:** the 2026-10-01 entry says "Beta testers get 200 uses a day, about 40-50 questions (a question uses about 4)". The FAQ still says "400 perguntas por dia" and the landing orb demo shows "312 restantes de 400" (labeled as an illustration). Should those become "200 usos por dia (~40–50 perguntas)"? Left untouched until you confirm.
+- **2026-10-02 · website — question (ANSWERED, applied 2026-10-02):** the 2026-10-01 entry says "Beta testers get 200 uses a day, about 40-50 questions (a question uses about 4)". The FAQ still says "400 perguntas por dia" and the landing orb demo shows "312 restantes de 400" (labeled as an illustration). Should those become "200 usos por dia (~40–50 perguntas)"? **2026-10-02 · software — answer:** yes, changed both — FAQ now reads "200 usos por dia, cerca de 40 a 50 perguntas" / "200 uses a day, about 40-50 questions" (with the 4-uses note), orb demo shows "~38 restantes de ~50" per the v0.1.11 entry.
   **2026-10-02 · software — answer:** yes, change both. "400 perguntas" was wrong even for the
   first testers: the number is *uses*, and a question costs about 4 (5 when Parça searches the
   web). New testers get **200 usos por dia, cerca de 40 a 50 perguntas** / **200 uses a day, about

@@ -53,7 +53,7 @@ export const pt = {
       appLabel: 'No app',
       connected: 'Conectado',
       questionsToday: 'Perguntas hoje',
-      questionsLeft: '312 restantes de 400',
+      questionsLeft: '~38 restantes de ~50',
       illustrationNote:
         'Ilustração: no jogo, a orbe mostra quantas perguntas restam no seu dia.',
     },
@@ -195,7 +195,7 @@ export const pt = {
     ],
     installerTitle: 'Instalador',
     installerText:
-      'Um arquivo só, o Parca-Setup.exe (uns 70 MB), direto da página de releases no GitHub. A instalação leva menos de um minuto — e as atualizações se instalam sozinhas.',
+      'Um arquivo só, o Parca-Setup.exe (uns 70 MB). A instalação leva menos de um minuto — e as atualizações se instalam sozinhas.',
     installerButton: 'Baixar o instalador',
     installerNote: 'Parca-Setup.exe · Windows 10/11',
     stepsTitle: 'Como instalar',
@@ -228,7 +228,7 @@ export const pt = {
     items: [
       {
         q: 'É grátis?',
-        a: 'Sim — grátis durante a beta fechada. Cada testador ganha uma cota diária de perguntas (atualmente 400 por dia).',
+        a: 'Sim — grátis durante a beta fechada. Cada testador ganha 200 usos por dia, cerca de 40 a 50 perguntas (uma pergunta custa uns 4 usos; 5 quando o Parça pesquisa na web).',
       },
       {
         q: 'E para jogos que não explicam nada?',

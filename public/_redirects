@@ -2,6 +2,5 @@
 # Our own permanent address for the installer: links, the welcome email and
 # the site point HERE, so the file can move off GitHub later without
 # breaking a single link. 302 = temporary, so the target can change.
-# Since 2026-10-02 the file is served by Parça's own server (no longer GitHub).
-/download/Parca-Setup.exe  https://api.parcaplay.com/releases/Parca-Setup.exe  302
+/download/Parca-Setup.exe  https://github.com/vallanders-dev/game-companion-client/releases/latest/download/Parca-Setup.exe  302
 /download                  /baixar  302
