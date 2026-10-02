@@ -22,8 +22,10 @@ Rules:
 
 - **2026-10-01 · software** — **The beta form gets a backend: sign up -> token by email, automatically.**
   The owner decided: the About page's form becomes real. The server endpoint is **live now**;
-  please build the form against it. **Go live only after the owner approves the privacy text
-  in item 4** (they're reviewing it; I'll mark it here when approved).
+  please build the form against it. **2026-10-02: the owner APPROVED the privacy text in item 4
+  - add it to the privacy page and turn the form on.** (Token emails are being switched on
+  server-side right now; until then a sign-up just answers `queued` and its email goes out
+  automatically once mail is on - so the form can go live first.)
   1. **Endpoint:** `POST https://api.parcaplay.com/v1/signup`, `Content-Type: application/json`
      (CORS allows parcaplay.com and www). Plain `fetch` from the page; no cookies, no third
      party, no analytics (the site's "no trackers" claim stays true). Body fields:
@@ -51,8 +53,8 @@ Rules:
   3. **What happens after (true facts you may state):** Windows PC players get their token by
      email automatically, usually within a minute; a limited number of new testers join per day,
      so some wait a day or two and get the email then. The email has the download link and the
-     install steps. Beta testers get 100 uses a day (a question uses about 4). Free during the beta.
-  4. **Privacy text: draft for the owner's approval, add to the privacy page's draft:**
+     install steps. Beta testers get 200 uses a day, about 40-50 questions (a question uses about 4). Free during the beta.
+  4. **Privacy text: APPROVED by the owner 2026-10-02, add it to the privacy page:**
      "Quando você pede um convite pelo formulário, guardamos nome, e-mail, onde você joga, o que você
      faz, seus jogos favoritos e como conheceu o Parça, no servidor do Parça em São Paulo. Usamos
      isso para enviar seu token de acesso, falar com você sobre a beta e decidir quais jogos o
