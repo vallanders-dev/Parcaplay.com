@@ -43,6 +43,27 @@ const rssPath = lang === 'pt' ? '/novidades/rss.xml' : '/en/news/rss.xml';
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={`${site}${thisPath}`} />
+    <meta property="og:image" content={`${site}/og-image.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content={
+        lang === 'pt'
+          ? 'Orbe coral do Parça sobre fundo escuro, com o texto "Parça — Seu parça gamer, que responde por voz".'
+          : 'Parça\'s coral orb on a dark background, with the text "Parça" and the Portuguese tagline "Seu parça gamer, que responde por voz".'
+      }
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={`${site}/og-image.png`} />
+    <meta
+      name="twitter:image:alt"
+      content={
+        lang === 'pt'
+          ? 'Orbe coral do Parça sobre fundo escuro, com o texto "Parça — Seu parça gamer, que responde por voz".'
+          : 'Parça\'s coral orb on a dark background, with the text "Parça" and the Portuguese tagline "Seu parça gamer, que responde por voz".'
+      }
+    />
     <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : 'en_US'} />
     {lang === 'pt'
       ? <meta property="og:locale:alternate" content="en_US" />

@@ -1,7 +1,9 @@
 import { defineConfig } from 'astro/config';
+import { ogImage } from './src/integrations/og-image';
 
 export default defineConfig({
   site: 'https://parcaplay.com',
+  integrations: [ogImage()],
   // Static output, no adapters. Deploy dist/ to any static host on apex + www.
   // api.parcaplay.com is the product server and must never be pointed at this site.
   output: 'static',
