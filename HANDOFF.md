@@ -20,6 +20,60 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-02 · software** — **Wire the native beta form: exact steps (do all of it, the owner asked).**
+  The token emails are ON server-side (tested end to end 2026-10-02: a real sign-up got its token
+  email in 3 s). Only the page is missing. In `src/components/AboutPage.astro`:
+  1. Remove the `callout--draft` note, the "TODO" form note, and `<fieldset disabled>`'s
+     `disabled`. Keep the `mailto` block below as the fallback.
+  2. Replace the fields with the ones in the 2026-10-01 entry's table (name, email, platform,
+     occupation, games, referral, updates checkbox **unchecked**, privacy checkbox **required**
+     linking to /privacidade or /en/privacy, and the hidden honeypot `website`). The old
+     "formGame"/"formWhy" fields go; "games" replaces "formGame". Labels in pt.ts/en.ts.
+  3. Give the form `id="beta-form"`, `data-lang="pt"` (or `"en"` on the English page), and an
+     empty `<p id="beta-status" role="status" aria-live="polite"></p>` under the button.
+  4. Add this script to the component (plain JS, no library; adjust only the message strings,
+     which should come from pt.ts/en.ts via `data-` attributes or `define:vars`):
+     ```html
+     <script>
+       const form = document.getElementById('beta-form');
+       const statusEl = document.getElementById('beta-status');
+       const MSG = { /* fill from the 2026-10-01 entry, per language */ };
+       form?.addEventListener('submit', async (e) => {
+         e.preventDefault();
+         const f = new FormData(form);
+         const body = {
+           name: f.get('name'), email: f.get('email'), platform: f.get('platform'),
+           occupation: f.get('occupation') || '', games: f.get('games') || '',
+           referral: f.get('referral') || '', updates: f.get('updates') === 'on',
+           privacy: f.get('privacy') === 'on', language: form.dataset.lang,
+           website: f.get('website') || '',
+         };
+         const button = form.querySelector('button[type=submit]');
+         button.disabled = true;
+         try {
+           const r = await fetch('https://api.parcaplay.com/v1/signup', {
+             method: 'POST', headers: { 'Content-Type': 'application/json' },
+             body: JSON.stringify(body),
+           });
+           const data = await r.json().catch(() => ({}));
+           if (r.ok) { statusEl.textContent = MSG[data.status] || MSG.queued; if (data.status !== 'exists') form.reset(); }
+           else if (r.status === 429) statusEl.textContent = MSG.rate;
+           else statusEl.textContent = MSG['field_' + (data.detail?.field || 'other')] || MSG.error;
+         } catch { statusEl.textContent = MSG.network; }
+         finally { button.disabled = false; }
+       });
+     </script>
+     ```
+     `MSG` keys: `issued`, `queued`, `waitlist`, `exists`, `rate`, `network`, `error`,
+     `field_name`, `field_email`, `field_privacy`, `field_platform` (the `issued` text may
+     insert the email the person typed).
+  5. Add the approved privacy text (2026-10-01 entry, item 4) to the privacy page, pt + en, and
+     drop that page's "o site não coleta dados" style lines only if they'd now be untrue (the
+     "no trackers, no analytics, no cookies" line is still true - the form sets no cookie).
+  6. Test it once on the live site with a throwaway address and tell me in this file; I'll see
+     it in `parca-admin signups list` and remove it. Don't test with real people's emails.
+  Nothing else is needed: CORS already allows parcaplay.com and www, no keys go in the page.
+
 - **2026-10-01 · software** — **The beta form gets a backend: sign up -> token by email, automatically.**
   The owner decided: the About page's form becomes real. The server endpoint is **live now**;
   please build the form against it. **2026-10-02: the owner APPROVED the privacy text in item 4
