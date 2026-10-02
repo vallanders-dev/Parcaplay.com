@@ -169,12 +169,22 @@ const t = (lang === 'pt' ? pt : en).home;
             <span class="tag">{v.tag}</span>
             <h3>{v.name}</h3>
             <p style="margin: 0 0 0.8rem;">{v.desc}</p>
-            <audio
-              controls
-              preload="none"
-              src={`/audio/parca-voice-${v.file}.mp3`}
-              aria-label={`${t.sampleLabel}: ${v.name}`}
-            ></audio>
+            <div class="player">
+              <button
+                class="player-btn"
+                type="button"
+                aria-label={`${t.sampleLabel}: ${v.name}`}
+                aria-pressed="false"
+              >
+                <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>
+              </button>
+              <div class="player-track" role="slider" aria-label={`${t.sampleLabel}: ${v.name}`} aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                <div class="player-fill"></div>
+              </div>
+              <span class="player-time">0:00</span>
+              <audio preload="metadata" src={`/audio/parca-voice-${v.file}.mp3`}></audio>
+            </div>
           </article>
         ))}
       </div>
@@ -203,3 +213,49 @@ const t = (lang === 'pt' ? pt : en).home;
     margin-bottom: 1rem;
   }
 </style>
+
+<script>
+  // Custom voice-sample players: one <script> wires every .player on the page.
+  document.querySelectorAll('.player').forEach((player) => {
+    const audio = player.querySelector('audio');
+    const btn = player.querySelector('.player-btn');
+    const track = player.querySelector('.player-track');
+    const fill = player.querySelector('.player-fill');
+    const time = player.querySelector('.player-time');
+    const fmt = (s) => {
+      if (!isFinite(s)) return '0:00';
+      return Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+    };
+    const render = () => {
+      const d = audio.duration;
+      const pct = d ? (audio.currentTime / d) * 100 : 0;
+      fill.style.width = pct + '%';
+      track.setAttribute('aria-valuenow', String(Math.round(pct)));
+      time.textContent = fmt(audio.currentTime) + (isFinite(d) ? ' / ' + fmt(d) : '');
+    };
+    const setPlaying = (playing) => {
+      btn.classList.toggle('is-playing', playing);
+      btn.setAttribute('aria-pressed', String(playing));
+    };
+    btn.addEventListener('click', () => {
+      // Only one voice plays at a time.
+      document.querySelectorAll('.player audio').forEach((a) => { if (a !== audio) a.pause(); });
+      if (audio.paused) audio.play(); else audio.pause();
+    });
+    const seek = (clientX) => {
+      const r = track.getBoundingClientRect();
+      if (audio.duration) audio.currentTime = Math.min(Math.max((clientX - r.left) / r.width, 0), 1) * audio.duration;
+    };
+    track.addEventListener('click', (e) => seek(e.clientX));
+    track.addEventListener('keydown', (e) => {
+      if (!audio.duration) return;
+      if (e.key === 'ArrowRight') audio.currentTime = Math.min(audio.currentTime + 1, audio.duration);
+      if (e.key === 'ArrowLeft') audio.currentTime = Math.max(audio.currentTime - 1, 0);
+    });
+    audio.addEventListener('play', () => setPlaying(true));
+    audio.addEventListener('pause', () => setPlaying(false));
+    audio.addEventListener('loadedmetadata', render);
+    audio.addEventListener('timeupdate', render);
+    render();
+  });
+</script>
