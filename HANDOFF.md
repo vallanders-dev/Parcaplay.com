@@ -20,6 +20,52 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-01 · software** — **The beta form gets a backend: sign up -> token by email, automatically.**
+  The owner decided: the About page's form becomes real. The server endpoint is **live now**;
+  please build the form against it. **Go live only after the owner approves the privacy text
+  in item 4** (they're reviewing it; I'll mark it here when approved).
+  1. **Endpoint:** `POST https://api.parcaplay.com/v1/signup`, `Content-Type: application/json`
+     (CORS allows parcaplay.com and www). Plain `fetch` from the page; no cookies, no third
+     party, no analytics (the site's "no trackers" claim stays true). Body fields:
+     | field | type | required | form label (pt / en) |
+     |---|---|---|---|
+     | `name` | text ≤80 | yes | Nome / Name |
+     | `email` | email | yes | E-mail / Email |
+     | `platform` | `"pc"` \| `"both"` \| `"console"` \| `"other"` | yes | Onde você joga? PC com Windows · PC e console · Só console · Outro / Where do you play? Windows PC · PC and console · Console only · Other |
+     | `occupation` | text ≤120 | no | O que você faz? (e.g. a select: Jogo por diversão · Faço live ou vídeos · Estudo · Trabalho com games · Outro) |
+     | `games` | text ≤300 | no | Quais jogos você mais joga? / Which games do you play most? |
+     | `referral` | text ≤120 | no | Como conheceu o Parça? (select: Amigo · Twitch · YouTube · TikTok · Instagram · Discord · Google · Outro) |
+     | `updates` | boolean, **unchecked by default** | no | Quero receber novidades do Parça por e-mail / Send me Parça news by email |
+     | `privacy` | boolean, must be `true` | yes | Li e aceito a [política de privacidade] / I've read and accept the [privacy policy] |
+     | `language` | `"pt"` \| `"en"` | yes | (the page's language; the token email is sent in it) |
+     | `website` | text | — | **honeypot**: an input real people never see (off-screen with CSS, `tabindex="-1"`, `autocomplete="off"`, NOT `type="hidden"`). Always send it; it must stay empty. |
+  2. **Responses → message to show** (suggested copy, adjust the tone freely):
+     - `200 {"status":"issued"}` → "Pronto! Mandamos seu token para {email}. Confira a caixa de entrada (e o spam)." / "Done! Your token is on its way to {email}. Check your inbox (and spam)."
+     - `200 {"status":"queued"}` → "Você está na lista! Os convites saem por ordem de chegada, e o seu chega por e-mail em breve." / "You're on the list! Invites go out in order, yours will arrive by email soon."
+     - `200 {"status":"waitlist"}` → "Valeu! Por enquanto o Parça é só para PC com Windows. Guardamos seu contato e avisamos quando chegar na sua plataforma." / "Thanks! For now Parça is Windows PC only. We'll let you know when it reaches your platform."
+     - `200 {"status":"exists"}` → "Esse e-mail já está cadastrado. Não achou o token? Escreva pra contato@parcaplay.com." / "This email is already signed up. Can't find your token? Write to contato@parcaplay.com."
+     - `400 {"detail":{"error":"invalid","field":"name"|"email"|"privacy"|"platform"}}` → highlight that field.
+     - `429` → "Muitas tentativas. Tente de novo daqui a pouco." / "Too many tries. Please try again in a bit."
+     - network error → "Não conseguimos enviar agora. Tente de novo, ou escreva pra contato@parcaplay.com."
+     Disable the button while sending. Keep the mailto link as a fallback below the form.
+  3. **What happens after (true facts you may state):** Windows PC players get their token by
+     email automatically, usually within a minute; a limited number of new testers join per day,
+     so some wait a day or two and get the email then. The email has the download link and the
+     install steps. Beta testers get 100 uses a day (a question uses about 4). Free during the beta.
+  4. **Privacy text: draft for the owner's approval, add to the privacy page's draft:**
+     "Quando você pede um convite pelo formulário, guardamos nome, e-mail, onde você joga, o que você
+     faz, seus jogos favoritos e como conheceu o Parça, no servidor do Parça em São Paulo. Usamos
+     isso para enviar seu token de acesso, falar com você sobre a beta e decidir quais jogos o
+     Parça vai aprender. Só mandamos novidades se você marcar essa opção. O e-mail sai da nossa
+     caixa contato@parcaplay.com (GoDaddy). Não vendemos nem compartilhamos esses dados. Para ver,
+     corrigir ou apagar seus dados, escreva para contato@parcaplay.com." /
+     "When you request an invite through the form, we store your name, email, where you play, what
+     you do, your favorite games and how you found Parça, on Parça's server in São Paulo, Brazil. We
+     use it to send your access token, talk to you about the beta and decide which games Parça
+     learns next. We only send news if you tick that box. Emails come from our contato@parcaplay.com
+     mailbox (GoDaddy). We don't sell or share this data. To see, correct or delete your data, write
+     to contato@parcaplay.com."
+
 - **2026-10-01 · software** — **Messaging angle from the first real tester (owner's idea), plus a 9th game.**
   1. **The angle: games that explain nothing.** The first tester played Don't Starve Together
      with Parça and said, in his words: the game is very complex, the learning curve is huge,
