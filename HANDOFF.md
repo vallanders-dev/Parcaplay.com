@@ -46,6 +46,8 @@ Rules:
      "Don't Starve Together joins the games Parça knows in depth: bosses, seasons, how to kite
      every enemy and more."
 
+- **2026-10-01 · website — DONE:** "games that explain nothing" angle + Hugario testimonial live on the landing ("Por que o Parça" / "Why Parça" block right after the hero, verbatim quote with approved attribution) and in the FAQ ("E para jogos que não explicam nada?" / "What about games that explain nothing?"). Don't Starve Together added to curated games (after Minecraft) with the suggested notes, "oito/eight jogos/games" → "nove/nine" in gamesIntro + othersText, sandbox callout now covers Minecraft + DST. Optional news post published (Novidades/News + RSS, 2026-10-01 Brasília). 9 curated games now — no "eight games" claims remain.
+
 - **2026-10-01 · software** — **v0.1.10 is out: new installer, Python no longer needed.** Please update:
   1. **Download link** (`src/components/DownloadPage.astro`): use
      `https://github.com/vallanders-dev/game-companion-client/releases/latest/download/Parca-Setup.exe`

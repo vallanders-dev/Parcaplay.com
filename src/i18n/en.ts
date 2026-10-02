@@ -31,6 +31,12 @@ export const en = {
     h1: 'Your gaming buddy that answers by voice.',
     lead: 'Press F8, ask out loud, and Parça answers by voice — no alt-tabbing, no typing, no wiki tabs.',
     sub: 'It looks only at the game window, figures out where you are, and speaks the answer back in seconds.',
+    whyTitle: 'Why Parça',
+    whyLead:
+      'Some games teach you nothing. Every enemy has its own way to be kited, bosses change form after losing health — and the game tells you none of it. Parça explains while you play, without leaving the game.',
+    quote:
+      '"The game explains NOTHING! It\'s all trial and error. So Parça helps a lot."',
+    quoteAttr: 'Hugario, beta tester · Don\'t Starve Together (translated from Portuguese)',
     ctaPrimary: 'Join the beta',
     ctaSecondary: 'How it works',
     orbCaption: "Parça's orb, cycling through its states",
@@ -123,10 +129,11 @@ export const en = {
 
     gamesTitle: 'The games it knows well',
     gamesIntro:
-      'Parça has hand-built, fact-checked knowledge for eight games. For any other game, it searches the web live — that takes a little longer, and it says it’s searching while it works.',
+      'Parça has hand-built, fact-checked knowledge for nine games. For any other game, it searches the web live — that takes a little longer, and it says it’s searching while it works.',
     curatedTitle: 'Deep knowledge',
     curated: [
       { name: 'Minecraft', note: 'by far the deepest: biomes, the Nether, the End, survival, building and exploring' },
+      { name: 'Don\'t Starve Together', note: 'survival, seasons, bosses and how to kite each enemy' },
       { name: 'The Witcher 3: Wild Hunt', note: '' },
       { name: 'Elden Ring', note: '' },
       { name: 'Cyberpunk 2077', note: '' },
@@ -137,7 +144,7 @@ export const en = {
     ],
     othersTitle: 'What about other games?',
     othersText:
-      'For any other game it answers by searching the web live. Those answers take a little longer — and it says it’s searching while it works. No “knows every game” talk: the deep, fact-checked knowledge is these eight.',
+      'For any other game it answers by searching the web live. Those answers take a little longer — and it says it’s searching while it works. No “knows every game” talk: the deep, fact-checked knowledge is these nine.',
 
     storyTitle: 'Stories deserve respect',
     storyIntro:
@@ -152,9 +159,9 @@ export const en = {
     storyOverrideTitle: 'Want the full details?',
     storyOverride:
       'Just ask — “tell me everything” in English — and from then on it answers openly for that game.',
-    storyMinecraftTitle: 'The contrast: Minecraft',
+    storyMinecraftTitle: 'The contrast: Minecraft and Don\'t Starve Together',
     storyMinecraft:
-      'Minecraft is a sandbox: survival, building and exploring. There the help is direct, with no spoiler filter.',
+      'Minecraft and Don\'t Starve Together are sandboxes: survival, building and exploring. There the help is direct, with no spoiler filter.',
 
     voicesTitle: 'Five voices',
     voicesIntro:
@@ -222,6 +229,10 @@ export const en = {
       {
         q: 'Is it free?',
         a: 'Yes — free during the closed beta. Each tester gets a daily allowance of questions (currently 400 per day).',
+      },
+      {
+        q: 'What about games that explain nothing?',
+        a: 'That’s where Parça shines. Some games drop you into the world and teach you nothing — every enemy has its own way to be kited, bosses change form, and nobody tells you any of it. Parça explains while you play, without leaving the game. As Hugario, one of our beta testers, put it while playing Don\'t Starve Together: “The game explains NOTHING! It\'s all trial and error. So Parça helps a lot.” (translated from Portuguese)',
       },
       {
         q: 'Does it work on consoles?',

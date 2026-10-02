@@ -407,6 +407,17 @@ kbd, .kbd {
 .callout--warn { border-left-color: var(--amber); }
 .callout--draft { border-left-color: var(--amber); background: #221d12; }
 
+.quote {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--coral);
+  background: var(--card);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.1rem 1.3rem;
+  margin: 1.5rem 0;
+}
+.quote p { margin: 0 0 0.6rem; font-size: 1.15rem; font-style: italic; }
+.quote footer { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
 .voice-list { display: grid; gap: 1rem; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .voice-list { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .voice-list { grid-template-columns: repeat(3, 1fr); } }

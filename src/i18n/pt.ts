@@ -31,6 +31,12 @@ export const pt = {
     h1: 'Seu parça gamer, que responde por voz.',
     lead: 'Aperte F8, pergunte em voz alta e o Parça responde falando — sem alt-tab, sem digitar, sem abrir wiki.',
     sub: 'Ele olha só a janela do jogo, entende onde você está e fala a resposta em segundos.',
+    whyTitle: 'Por que o Parça',
+    whyLead:
+      'Alguns jogos não te ensinam nada. Cada inimigo tem um jeito próprio de ser kitar, os chefes mudam de forma depois de perder vida — e o jogo não te conta isso. O Parça explica enquanto você joga, sem você sair do jogo.',
+    quote:
+      '"O jogo não te explica NADA! É tudo na tentativa e erro. Então o Parça ajuda bastante."',
+    quoteAttr: 'Hugario, beta tester · Don\'t Starve Together',
     ctaPrimary: 'Quero entrar na beta',
     ctaSecondary: 'Como funciona',
     orbCaption: 'A orbe do Parça, rodando pelos estados',
@@ -123,10 +129,11 @@ export const pt = {
 
     gamesTitle: 'Os jogos que ele manja',
     gamesIntro:
-      'O Parça tem conhecimento montado à mão e revisado para oito jogos. Para qualquer outro, ele pesquisa na hora na web — demora um pouquinho mais, e ele avisa que está pesquisando.',
+      'O Parça tem conhecimento montado à mão e revisado para nove jogos. Para qualquer outro, ele pesquisa na hora na web — demora um pouquinho mais, e ele avisa que está pesquisando.',
     curatedTitle: 'Conhecimento profundo',
     curated: [
       { name: 'Minecraft', note: 'de longe o mais profundo: biomas, Nether, End, sobrevivência, construção e exploração' },
+      { name: 'Don\'t Starve Together', note: 'sobrevivência, estações, chefes e como kitar cada inimigo' },
       { name: 'The Witcher 3: Wild Hunt', note: '' },
       { name: 'Elden Ring', note: '' },
       { name: 'Cyberpunk 2077', note: '' },
@@ -137,7 +144,7 @@ export const pt = {
     ],
     othersTitle: 'E os outros jogos?',
     othersText:
-      'Para qualquer outro jogo ele responde pesquisando na web ao vivo. Essas respostas demoram um pouco mais — e ele diz que está pesquisando enquanto trabalha. Sem papo de “manja de todos os jogos”: o conhecimento profundo e revisado é desses oito.',
+      'Para qualquer outro jogo ele responde pesquisando na web ao vivo. Essas respostas demoram um pouco mais — e ele diz que está pesquisando enquanto trabalha. Sem papo de “manja de todos os jogos”: o conhecimento profundo e revisado é desses nove.',
 
     storyTitle: 'História se respeita',
     storyIntro:
@@ -152,9 +159,9 @@ export const pt = {
     storyOverrideTitle: 'Quer saber de tudo mesmo?',
     storyOverride:
       'É só pedir — “sem rodeios” em português — e dali em diante ele responde abertamente para aquele jogo.',
-    storyMinecraftTitle: 'O contraste: Minecraft',
+    storyMinecraftTitle: 'O contraste: Minecraft e Don\'t Starve Together',
     storyMinecraft:
-      'Minecraft é sandbox: sobrevivência, construção e exploração. Ali a ajuda é direta, sem filtro de spoiler.',
+      'Minecraft e Don\'t Starve Together são sandbox: sobrevivência, construção e exploração. Ali a ajuda é direta, sem filtro de spoiler.',
 
     voicesTitle: 'Cinco vozes',
     voicesIntro:
@@ -222,6 +229,10 @@ export const pt = {
       {
         q: 'É grátis?',
         a: 'Sim — grátis durante a beta fechada. Cada testador ganha uma cota diária de perguntas (atualmente 400 por dia).',
+      },
+      {
+        q: 'E para jogos que não explicam nada?',
+        a: 'É onde o Parça brilha. Tem jogo que te joga no mundo e não ensina nada — cada inimigo tem um jeito próprio de ser kitar, os chefes mudam de forma, e ninguém te conta isso. O Parça explica enquanto você joga, sem sair do jogo. Como disse o Hugario, um dos nossos testadores, jogando Don\'t Starve Together: “O jogo não te explica NADA! É tudo na tentativa e erro. Então o Parça ajuda bastante.”',
       },
       {
         q: 'Funciona no console?',
