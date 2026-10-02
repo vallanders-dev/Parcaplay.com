@@ -1,6 +1,10 @@
-# Builds the site and publishes it to GitHub Pages (parcaplay.com) on every
-# push to main. The custom domain is set in the repo's Pages settings.
-name: Deploy to GitHub Pages
+# Builds the site and publishes it on every push to main.
+# 2026-10-02: moving from GitHub Pages to Cloudflare Pages (project
+# "parcaplay", parcaplay.pages.dev). Both are published while parcaplay.com's
+# DNS moves over; the GitHub Pages job goes away once Cloudflare serves the
+# domain. Secrets: CLOUDFLARE_PAGES_TOKEN (can only upload to Pages - no DNS
+# access) and CLOUDFLARE_ACCOUNT_ID, set by the software side.
+name: Deploy site
 
 on:
   push:
@@ -29,8 +33,26 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist
 
-  deploy:
+  deploy-cloudflare:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: dist
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=parcaplay --branch=main --commit-dirty=true
+
+  deploy-github:
     needs: build
     runs-on: ubuntu-latest
     environment:

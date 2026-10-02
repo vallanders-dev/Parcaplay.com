@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects (owned by the software side - please keep).
+# Our own permanent address for the installer: links, the welcome email and
+# the site point HERE, so the file can move off GitHub later without
+# breaking a single link. 302 = temporary, so the target can change.
+/download/Parca-Setup.exe  https://github.com/vallanders-dev/game-companion-client/releases/latest/download/Parca-Setup.exe  302
+/download                  /baixar  302
