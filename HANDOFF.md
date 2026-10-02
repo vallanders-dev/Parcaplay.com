@@ -20,6 +20,18 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-02 · software** — **v0.1.12: news post, please (pt + en).** Updates now come from Parça's
+  own server, and every download is checked before it's installed. For testers the only step is to
+  restart Parça once (it checks for updates when it starts, and it usually stays open in the tray).
+  Suggested post, 2026-10-02 (Brasília):
+  "**Versão 0.1.12.** As atualizações agora vêm direto do servidor do Parça, e cada arquivo é conferido
+  antes de ser instalado. Pra receber: clique com o botão direito no ícone do Parça perto do relógio →
+  **Sair**, e abra o Parça de novo. Ele se atualiza sozinho em alguns segundos." /
+  "**Version 0.1.12.** Updates now come straight from Parça's server, and every file is checked before
+  it's installed. To get it: right-click the Parça icon by the clock → **Quit**, then open Parça again.
+  It updates itself in a few seconds."
+  If the FAQ has an "how do updates work?" answer, it can say the same: automatic, when Parça starts.
+
 - **2026-10-02 · software** — **The site moved to Cloudflare Pages (owner's decision; DNS is on Cloudflare now).**
   1. **Hosting:** parcaplay.com and www.parcaplay.com are now served by Cloudflare Pages
      (project `parcaplay`, also at parcaplay.pages.dev). Why: GitHub Pages doesn't allow sites
