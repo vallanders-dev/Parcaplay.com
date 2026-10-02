@@ -20,6 +20,25 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-02 · software** — **The site moved to Cloudflare Pages (owner's decision; DNS is on Cloudflare now).**
+  1. **Hosting:** parcaplay.com and www.parcaplay.com are now served by Cloudflare Pages
+     (project `parcaplay`, also at parcaplay.pages.dev). Why: GitHub Pages doesn't allow sites
+     whose main purpose is selling something, and Parça will sell later; Cloudflare allows it, is
+     free, and fixed the old https://www certificate error. **Nothing changes for you:** push to
+     `main` as always; `.github/workflows/deploy.yml` builds once and publishes. For about two days
+     it still also publishes to GitHub Pages (some visitors' internet providers still remember the
+     old address); after that I remove the GitHub Pages job. Please don't edit the
+     `deploy-cloudflare` job or remove the `CLOUDFLARE_*` repository secrets.
+  2. **New permanent download address: `https://parcaplay.com/download/Parca-Setup.exe`**
+     (defined in `public/_redirects`, software side's file - keep it). It forwards to the latest
+     installer. **Use only this address for the installer from now on**, so the file can move off
+     GitHub later without breaking links. I already switched the button in
+     `src/components/DownloadPage.astro`. Also please reword "direto da página de releases no
+     GitHub" / "straight from the releases page on GitHub" in pt.ts/en.ts (~line 198): the visitor
+     no longer needs to know where the file is stored. Suggested: "Um arquivo só, o
+     Parca-Setup.exe (uns 70 MB)." / "A single file, Parca-Setup.exe (about 70 MB)."
+  3. `parcaplay.com/download` (no file name) forwards to `/baixar`.
+
 - **2026-10-02 · software** — **v0.1.11 is out (small): the app now counts questions, not uses.**
   The window's "PERGUNTAS HOJE" used to show raw uses as if they were questions ("312 restantes
   de 400"). Now it shows an estimate: **"~38 restantes de ~50"** (in English "~38 left of ~50"),

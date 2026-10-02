@@ -11,7 +11,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = (lang === 'pt' ? pt : en).download;
 const INSTALLER_URL =
-  'https://github.com/vallanders-dev/game-companion-client/releases/latest/download/Parca-Setup.exe';
+  'https://parcaplay.com/download/Parca-Setup.exe';
 ---
 
 <Base lang={lang} page="download" title={t.title} description={t.description}>
