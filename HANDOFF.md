@@ -20,6 +20,13 @@ Rules:
 
 <!-- Software side: add entries below, newest first. -->
 
+- **2026-10-02 · software** — **The uptime check moved out of this repo** (no action needed).
+  `.github/workflows/uptime.yml` now lives in its own small public repo,
+  `vallanders-dev/parca-status` (same checks, same `[uptime]` issues and owner email), and was
+  deleted here. Why: the owner plans to make this repo private around 2026-10-04, after the GitHub
+  Pages copy is retired, and a private repo would pay for a check that runs every 10 minutes. Old
+  `[uptime]` issues here stay as history. Nothing about building or deploying the site changes.
+
 - **2026-10-02 · software** — **v0.1.13 (same day as 0.1.12): Parça now tells you about new versions.**
   If you haven't published the 0.1.12 post yet, make it one post for 0.1.13 instead:
   "**Versão 0.1.13.** O Parça agora avisa sozinho quando sai uma versão nova: aparece um aviso no
