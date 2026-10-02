@@ -31,9 +31,9 @@ export const en = {
     h1: 'Your gaming buddy that answers by voice.',
     lead: 'Press F8, ask out loud, and Parça answers by voice — no alt-tabbing, no typing, no wiki tabs.',
     sub: 'It looks only at the game window, figures out where you are, and speaks the answer back in seconds.',
-    whyTitle: 'Why Parça',
+    whyTitle: 'Because some games teach you nothing',
     whyLead:
-      'Some games teach you nothing. Every enemy has its own way to be kited, bosses change form after losing health — and the game tells you none of it. Parça explains while you play, without leaving the game.',
+      'Some games drop you into the world and teach you nothing: not how to kite the enemy, not how the boss works. Parça explains while you play, without leaving the game.',
     quote:
       '"The game explains NOTHING! It\'s all trial and error. So Parça helps a lot."',
     quoteAttr: 'Hugario, beta tester · Don\'t Starve Together (translated from Portuguese)',

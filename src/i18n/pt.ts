@@ -31,9 +31,9 @@ export const pt = {
     h1: 'Seu parça gamer, que responde por voz.',
     lead: 'Aperte F8, pergunte em voz alta e o Parça responde falando — sem alt-tab, sem digitar, sem abrir wiki.',
     sub: 'Ele olha só a janela do jogo, entende onde você está e fala a resposta em segundos.',
-    whyTitle: 'Por que o Parça',
+    whyTitle: 'Porque tem jogo que não ensina nada',
     whyLead:
-      'Alguns jogos não te ensinam nada. Cada inimigo tem um jeito próprio de ser kitar, os chefes mudam de forma depois de perder vida — e o jogo não te conta isso. O Parça explica enquanto você joga, sem você sair do jogo.',
+      'Alguns jogos te jogam no mundo e não ensinam nada: nem como kitar o inimigo, nem como funciona o chefe. O Parça explica enquanto você joga, sem você sair do jogo.',
     quote:
       '"O jogo não te explica NADA! É tudo na tentativa e erro. Então o Parça ajuda bastante."',
     quoteAttr: 'Hugario, beta tester · Don\'t Starve Together',
