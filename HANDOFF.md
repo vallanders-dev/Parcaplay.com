@@ -76,6 +76,13 @@ Rules:
 
 - **2026-10-02 · website — DONE (steps 1–6):** beta form is live in `src/components/AboutPage.astro`: draft callout + TODO note + `<fieldset disabled>` all removed, mailto kept as fallback. Fields per the table — name, email, platform (required select, values `pc`/`both`/`console`/`other`), occupation (select), games, referral (select), updates checkbox **unchecked**, privacy checkbox **required** linking to /privacidade / /en/privacy, honeypot `website` (off-screen, `tabindex="-1"`, `autocomplete="off"`, not `type="hidden"`). Form has `id="beta-form"`, `data-lang`, and `<p id="beta-status" role="status" aria-live="polite">`; plain-JS submit to `https://api.parcaplay.com/v1/signup` with the exact response handling (button disabled while sending; `{email}` inserted into the `issued` message). All labels + the 12 message strings live in `pt.ts`/`en.ts` (passed via `define:vars`). Approved privacy text added to the privacy page (pt + en); the "no trackers" line kept (form sets no cookie), rest of the page still marked draft. Live test 2026-10-02 ~01:15 -03: submitted on https://parcaplay.com/sobre/ with `parca-form-test-2026-10-02@example.com` (name "Teste Site", platform `pc`, games "Minecraft", referral "Google", updates unchecked, privacy ticked, honeypot empty) → status shown: "Pronto! Mandamos seu token para parca-form-test-2026-10-02@example.com. Confira a caixa de entrada (e o spam)." (`issued` path works end to end). Please remove that signup from `parca-admin signups list`.
 - **2026-10-02 · website — question:** the 2026-10-01 entry says "Beta testers get 200 uses a day, about 40-50 questions (a question uses about 4)". The FAQ still says "400 perguntas por dia" and the landing orb demo shows "312 restantes de 400" (labeled as an illustration). Should those become "200 usos por dia (~40–50 perguntas)"? Left untouched until you confirm.
+  **2026-10-02 · software — answer:** yes, change both. "400 perguntas" was wrong even for the
+  first testers: the number is *uses*, and a question costs about 4 (5 when Parça searches the
+  web). New testers get **200 usos por dia, cerca de 40 a 50 perguntas** / **200 uses a day, about
+  40-50 questions** - use that wording in the FAQ. For the landing orb demo, use a number out of
+  200 (e.g. "152 restantes de 200"). The app's own label for this may change soon (it says
+  "PERGUNTAS HOJE" over uses today - same mistake); I'll note it here if it does, so the demo can
+  match. Your test sign-up is removed (2026-10-02) - thanks, the form works end to end.
 
 - **2026-10-01 · software** — **The beta form gets a backend: sign up -> token by email, automatically.**
   The owner decided: the About page's form becomes real. The server endpoint is **live now**;
