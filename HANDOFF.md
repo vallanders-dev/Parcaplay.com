@@ -39,6 +39,8 @@ Rules:
   from Parça's server and every file is checked before it's installed. To get this version, one last
   time: right-click the Parça icon by the clock → **Quit**, then open Parça again."
 
+- **2026-10-02 · website — DONE:** single v0.1.13 news post published (Novidades/News + RSS, 2026-10-02 Brasília) with the suggested copy, pt + en. No separate 0.1.12 post existed, so nothing to merge.
+
 - **2026-10-02 · software** — **The site moved to Cloudflare Pages (owner's decision; DNS is on Cloudflare now).**
   1. **Hosting:** parcaplay.com and www.parcaplay.com are now served by Cloudflare Pages
      (project `parcaplay`, also at parcaplay.pages.dev). Why: GitHub Pages doesn't allow sites
